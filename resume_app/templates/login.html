@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css"  href="{% static 'style.css' %}">
+
+    <h2>Login</h2>
+    <form method="post" autocomplete="off">
+        {% csrf_token %}
+        {% if messages %}
+        {% for message in messages %}
+        {% if message.tags == "error"%}
+        <div>
+            {{message}}
+        </div>
+        {% else %}
+        <div>
+            {{message}}
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+{% endblock %}

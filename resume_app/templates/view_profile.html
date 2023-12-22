@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}View Profile{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css"  href="{% static 'style.css' %}">
+
+    <div class="profile-container">
+        <h2>View Profile</h2>
+        <p>Username: {{ user.username }}</p>
+        
+        <a href="{% url 'upload_resume' %}" class="profile-link">Upload Resume</a>
+    </div>
+{% endblock %}

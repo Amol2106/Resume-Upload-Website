@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Upload Resume{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css"  href="{% static 'style.css' %}">
+
+    <div class="form-container">
+        <h2>Upload Resume</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+{% endblock %}
